@@ -13,6 +13,7 @@ interface Props {
   accountType?: WalletId;
   className?: string;
   showTooltip?: boolean;
+  disabled?: boolean;
   onChange(network: NetworkId): void;
 }
 
@@ -42,6 +43,7 @@ function NetworkSelectDropdown({
   accountType,
   onChange,
   showTooltip = false,
+  disabled = false,
   ...props
 }: Props) {
   const { networks } = useContext(NetworkContext);
@@ -74,6 +76,7 @@ function NetworkSelectDropdown({
         onChange={option => onChange(option.value.id)}
         optionComponent={NetworkOption}
         valueComponent={({ value: option }) => <NetworkOption option={option} />}
+        disabled={disabled}
       />
     </div>
   );
