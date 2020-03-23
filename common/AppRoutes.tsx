@@ -22,7 +22,20 @@ const LayoutWithLocation = withRouter(({ location, children }) => {
   };
   const isHomeRoute =
     location.pathname === ROUTE_PATHS.ROOT.path || location.pathname === ROUTE_PATHS.HOME.path;
-  return <Layout config={isHomeRoute ? homeLayout : {}}>{children}</Layout>;
+
+  const config = isHomeRoute ? homeLayout : {};
+
+  const isSettingsRoute = location.pathname === ROUTE_PATHS.SETTINGS.path;
+  Object.assign(
+    config,
+    isSettingsRoute
+      ? {
+          noPadding: true
+        }
+      : {}
+  );
+
+  return <Layout config={config}>{children}</Layout>;
 });
 
 export const AppRoutes = () => {

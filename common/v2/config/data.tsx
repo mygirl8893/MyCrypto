@@ -75,6 +75,8 @@ export const DEXAG_MYC_TRADE_CONTRACT = '0x3d7b19C37d422B43c07C7Ba6353ED2D168954
 export const DEXAG_MYC_HANDLER_CONTRACT = '0xae0A30ac8C76d85f1E76A3EbDcEdc3047e0da456';
 export const DEX_BASE_URL = 'https://api-v2.dex.ag/';
 
+export const LET_ENCRYPT_URL = 'https://letsencrypt.org/';
+
 export enum Theme {
   DARK = 'dark',
   LIGHT = 'light'

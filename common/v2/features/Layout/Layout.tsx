@@ -13,6 +13,7 @@ interface LayoutConfig {
   fluid?: boolean;
   fullW?: boolean;
   bgColor?: string;
+  noPadding?: boolean;
 }
 interface Props {
   config?: LayoutConfig;
@@ -43,7 +44,7 @@ const SBanner = styled(Banner)`
 `;
 
 const SContainer = styled('div')`
-  padding: ${SPACING.BASE};
+  ${({ noPadding }) => (noPadding ? `padding: ${SPACING.BASE} 0;` : `padding: ${SPACING.BASE};`)};
   width: 100%;
   max-width: ${p => (p.fullW ? '100%' : MAX_CONTENT_WIDTH)};
 
@@ -67,11 +68,12 @@ const SContainer = styled('div')`
 `;
 
 export default function Layout({ config = {}, className = '', children }: Props) {
-  const { centered = true, fluid, fullW = false, bgColor } = config;
+  const { centered = true, fluid, fullW = false, bgColor, noPadding = false } = config;
   const { visible, toggleVisible, setScreen } = useContext(DrawerContext);
   const { error, shouldShowError, getErrorMessage } = useContext(ErrorContext);
   const betaAnnouncement =
     'Heads up: this is a beta version of the new MyCrypto. It has not been audited yet, so please practice safe sending.';
+
   return (
     <SMain className={className} bgColor={bgColor}>
       <Header
@@ -83,7 +85,7 @@ export default function Layout({ config = {}, className = '', children }: Props)
         <SBanner type={BannerType.ERROR} value={getErrorMessage(error)} />
       )}
       <SBanner type={BannerType.ANNOUNCEMENT} value={betaAnnouncement} />
-      <SContainer centered={centered} fluid={fluid} fullW={fullW}>
+      <SContainer centered={centered} fluid={fluid} fullW={fullW} noPadding={noPadding}>
         {children}
       </SContainer>
       <Footer />
