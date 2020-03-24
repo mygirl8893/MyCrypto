@@ -21,7 +21,7 @@ import settingsIcon from 'common/assets/images/icn-settings.svg';
 import NetworkNodes from './components/NetworkNodes';
 import AddOrEditNetworkNode from './components/AddOrEditNetworkNode';
 import { AddressBookPanel, AddToAddressBook, GeneralSettings, DangerZone } from './components';
-import MobileNavBar from 'v2/MobileNavBar';
+import MobileNavBar from 'v2/components/MobileNavBar';
 
 const SettingsHeading = styled(Heading)`
   display: flex;
@@ -113,7 +113,7 @@ function renderNetworkNodes() {
           <AddOrEditNetworkNode
             networkId={networkId}
             editNode={editNode}
-            toggleFlipped={toggleFlipped}
+            onComplete={toggleFlipped}
             addNodeToNetwork={addNodeToNetwork}
             isNodeNameAvailable={isNodeNameAvailable}
             getNetworkById={getNetworkById}
