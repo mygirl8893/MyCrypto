@@ -47,8 +47,8 @@ const SContainer = styled('div')`
   width: 100%;
   max-width: ${p => (p.fullW ? '100%' : MAX_CONTENT_WIDTH)};
 
-  @media (min-width: ${BREAK_POINTS.SCREEN_XS}) {
-    padding: ${SPACING.MD} ${p => (p.fluid || p.fullW ? 0 : MIN_CONTENT_PADDING)};
+  @media (min-width: ${BREAK_POINTS.SCREEN_SM}) {
+    padding: ${SPACING.XXL} ${p => (p.fluid || p.fullW ? 0 : MIN_CONTENT_PADDING)};
   }
 
   ${({ centered }: LayoutConfig) =>
