@@ -653,6 +653,12 @@
     "SELECT_MEMBERSHIP": "Select Your Membership Plan",
     "MEMBERSHIP_DETAILS": "Membership Details",
     "COST": "Cost",
-    "NEW_MEMBER": "You are now a MyCrypto Member!"
+    "NEW_MEMBER": "You are now a MyCrypto Member!",
+    "APPROVE_MEMBERSHIP": "Approve Membership Contract",
+    "MEMBERSHIP_STEP1_TEXT": "Before purchasing a membership with DAI, you must approve the membership contract to execute the transaction.",
+    "COMPLETE_PURCHASE": "Complete Purchase",
+    "MEMBERSHIP_STEP2_TEXT": "The contract you approved will complete the membership purchase as soon as you confirm the transaction below.",
+    "PURCHASE_MEMBERSHIP": "Purchase Membership",
+    "PURCHASE_MEMBERSHIP_RECEIPT": "Purchase Membership Receipt"
   }
 }
