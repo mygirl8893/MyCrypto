@@ -69,3 +69,4 @@ export { default as GeneralStepper } from './GeneralStepper';
 export { default as Tooltip } from './Tooltip';
 export { default as AppLogo } from './AppLogo';
 export { default as VerticalStepper } from './VerticalStepper';
+export { default as UndoDeleteOverlay } from './UndoDeleteOverlay';

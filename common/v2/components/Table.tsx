@@ -13,6 +13,7 @@ import React, {
 } from 'react';
 import styled, { StyledComponentClass } from 'styled-components';
 import { Theme } from '@mycrypto/ui';
+import isFunction from 'lodash/isFunction';
 
 import { noOp } from 'v2/utils';
 import { default as Typography } from './Typography';
@@ -231,7 +232,7 @@ class AbstractTable extends Component<Props, State> {
             <TableRow key={rowIndex}>
               {overlay && overlayRows!.includes(rowIndex) ? (
                 // TODO: Solve jump in th width when the overlay is toggled.
-                <td colSpan={head.length}>{overlay}</td>
+                <td colSpan={head.length}>{isFunction(overlay) ? overlay(rowIndex) : overlay}</td>
               ) : (
                 row.map((cell, cellIndex) => (
                   <TableCell

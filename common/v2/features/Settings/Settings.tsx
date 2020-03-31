@@ -1,16 +1,16 @@
 import React, { useState, useContext } from 'react';
 import { Heading } from '@mycrypto/ui';
 import styled from 'styled-components';
-import translate from 'v2/translations';
 
 import { IS_MOBILE } from 'v2/utils';
 import { BREAK_POINTS, MIN_CONTENT_PADDING } from 'v2/theme';
 import { AddressBookContext, SettingsContext, StoreContext } from 'v2/services/Store';
 import { AccountList, FlippablePanel, TabsNav } from 'v2/components';
+import translate from 'v2/translations';
+import { IS_ACTIVE_FEATURE } from 'v2/config';
 import { AddressBookPanel, AddToAddressBook, GeneralSettings, DangerZone } from './components';
 
 import settingsIcon from 'common/assets/images/icn-settings.svg';
-import { IS_ACTIVE_FEATURE } from 'v2/config';
 
 const SettingsHeading = styled(Heading)`
   display: flex;
@@ -57,9 +57,15 @@ function renderAccountPanel() {
 }
 
 function renderAddressPanel() {
-  const { createAddressBooks, addressBook, deleteAddressBooks, updateAddressBooks } = useContext(
-    AddressBookContext
-  );
+  const {
+    createAddressBooks,
+    addressBook,
+    addressBookRestore,
+    deleteAddressBooks,
+    updateAddressBooks,
+    restoreDeletedAddressBook
+  } = useContext(AddressBookContext);
+
   return (
     <FlippablePanel>
       {({ flipped, toggleFlipped }) =>
@@ -71,6 +77,8 @@ function renderAddressPanel() {
             toggleFlipped={toggleFlipped}
             updateAddressBooks={updateAddressBooks}
             deleteAddressBooks={deleteAddressBooks}
+            restoreDeletedAddressBook={restoreDeletedAddressBook}
+            addressBookRestore={addressBookRestore}
           />
         )
       }
