@@ -463,7 +463,7 @@ const buildAccountTable = (
             <WalletLabelContainer>
               <WalletTypeLabel>{WALLETS_CONFIG[account.wallet].name}</WalletTypeLabel>
               {IS_ACTIVE_FEATURE.PRIVATE_TAGS && account.isPrivate && (
-                <PrivateWalletLabel>{'Private Account'}</PrivateWalletLabel>
+                <PrivateWalletLabel>{translateRaw('PRIVATE_ACCOUNT')}</PrivateWalletLabel>
               )}
             </WalletLabelContainer>
           </LabelWithWallet>
